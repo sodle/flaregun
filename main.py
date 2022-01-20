@@ -17,7 +17,7 @@ from typing import Optional
 from docopt import docopt
 import requests
 
-CLOUDFLARE_TOKEN = os.environ['CLOUDFLARE_TOKEN']
+CLOUDFLARE_TOKEN = os.environ.get('CLOUDFLARE_TOKEN')
 
 
 def get_zone_id(zone_name: str) -> str:
