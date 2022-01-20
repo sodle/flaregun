@@ -16,5 +16,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag flaregun:latest
+    - name: Login to Container Registry
+      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u sodle --password-stdin
     - name: Push the Docker image
       run: docker push ghcr.io/sodle/flaregun:latest
