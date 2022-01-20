@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag flaregun:latest
+      run: docker build . --file Dockerfile --tag ghcr.io/sodle/flaregun:latest
     - name: Login to Container Registry
       run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u sodle --password-stdin
     - name: Push the Docker image
