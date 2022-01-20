@@ -95,6 +95,7 @@ def main(zone_name: str, record_name: str):
     record_id = get_record_id(zone_id, record_name)
     my_ip = get_my_ip()
     put_a_record(zone_id, record_name, my_ip, record_id)
+    print(f"Updated {record_name} = {my_ip}")
 
 
 if __name__ == '__main__':
