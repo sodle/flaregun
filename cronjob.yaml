@@ -1,0 +1,23 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: flaregun
+spec:
+  schedule: "@hourly"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: flaregun
+            image: docker pull ghcr.io/sodle/flaregun:latest
+            imagePullPolicy: Always
+            env:
+              - name: ZONE
+                value: sjodle.com
+              - name: RECORD
+                value: altus.sjodle.com
+            envFrom:
+              - secretRef:
+                  name: cloudflare-token
+          restartPolicy: OnFailure
