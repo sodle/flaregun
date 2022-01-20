@@ -10,7 +10,7 @@ spec:
         spec:
           containers:
           - name: flaregun
-            image: docker pull ghcr.io/sodle/flaregun:latest
+            image: ghcr.io/sodle/flaregun:latest
             imagePullPolicy: Always
             env:
               - name: ZONE
